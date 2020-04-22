@@ -5,19 +5,37 @@ const interval = setInterval(() => {
         clearInterval(interval);
 
         const button = document.createElement("button");
-        button.innerHTML = "2x";
+        button.innerHTML = "1x";
         button.classList.add("twoTimesButton");
 
-        button.addEventListener("click", () => {
-            const audios = document.querySelectorAll("audio");
+        button.addEventListener("click", twoTimesSpeed);
+        header.appendChild(button);
+
+        
+        function twoTimesSpeed(){
+            button.innerHTML = "2x";
+            audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
                 console.log(audio);
                 audio.playbackRate = 2;
             })
+            button.removeEventListener("click",twoTimesSpeed);
+            button.onclick = oneTimeSpeed;
+        }
 
-        })
-        header.appendChild(button);
+        function oneTimeSpeed(){
+            button.innerHTML = "1x";
+            audios = document.querySelectorAll("audio");
+            console.log(audios);
+            audios.forEach((audio) => {
+                console.log(audio);
+                audio.playbackRate = 1;
+            })
+            button.removeEventListener("click",oneTimeSpeed);
+            button.onclick = twoTimesSpeed;
+        }
+
     }
 },1000);
 
