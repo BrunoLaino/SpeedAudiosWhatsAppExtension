@@ -5,7 +5,7 @@ const interval = setInterval(() => {
         clearInterval(interval);
 
         const button = document.createElement("button");
-        button.innerHTML = "1x";
+        button.innerHTML = "2x";
         button.classList.add("twoTimesButton");
 
         button.addEventListener("click", twoTimesSpeed);
@@ -13,7 +13,6 @@ const interval = setInterval(() => {
 
         
         function twoTimesSpeed(){
-            button.innerHTML = "2x";
             audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
@@ -25,7 +24,6 @@ const interval = setInterval(() => {
         }
 
         function oneTimeSpeed(){
-            button.innerHTML = "1x";
             audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
