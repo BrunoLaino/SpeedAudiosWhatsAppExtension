@@ -5,33 +5,44 @@ const interval = setInterval(() => {
         clearInterval(interval);
 
         const button = document.createElement("button");
-        button.innerHTML = "2x";
+        button.innerHTML = "1x";
         button.classList.add("twoTimesButton");
 
-        button.addEventListener("click", twoTimesSpeed);
+        button.addEventListener("click", () =>{
+
+            if(button.innerHTML == "1x") {
+                twoTimesSpeed();
+            }else{
+                oneTimeSpeed();
+            }
+
+        });
         header.appendChild(button);
 
         
+
         function twoTimesSpeed(){
+            button.innerHTML = "2x";
             audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
                 console.log(audio);
                 audio.playbackRate = 2;
             })
-            button.removeEventListener("click",twoTimesSpeed);
-            button.onclick = oneTimeSpeed;
+            //button.removeEventListener("click",twoTimesSpeed);
+            //button.onclick = oneTimeSpeed;
         }
 
         function oneTimeSpeed(){
+            button.innerHTML = "1x";
             audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
                 console.log(audio);
                 audio.playbackRate = 1;
             })
-            button.removeEventListener("click",oneTimeSpeed);
-            button.onclick = twoTimesSpeed;
+            //button.removeEventListener("click",oneTimeSpeed);
+            //button.onclick = twoTimesSpeed;
         }
 
     }
