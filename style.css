@@ -6,8 +6,7 @@
     border: none;
 }
 
-.testeCSS{
-
-    background-color: red;
-
-}
+.twoTimesButton:active {
+    color: red;
+    transform: translateY(4px);
+  }
