@@ -1,12 +1,19 @@
-.twoTimesButton{
-    color: gray;
+.twoTimesButtonOff , .twoTimesButtonOn{
     font-size: 1rem;
     font-weight: bold;
     background-color: transparent;
     border: none;
 }
 
-.twoTimesButton:active {
+.twoTimesButtonOff{
+    color: gray;
+}
+
+.twoTimesButtonOn{
     color: red;
+}
+
+.twoTimesButtonOff:active,.twoTimesButtonOn:active {
+    color: white;
     transform: translateY(4px);
   }

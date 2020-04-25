@@ -8,25 +8,28 @@ const interval = setInterval(() => {
         
         const button = document.createElement("button");
         button.innerHTML = "2x";
-        var vel = 1 // velocidade
-        button.classList.add("twoTimesButton");
-        
-        
+        button.classList.add("twoTimesButtonOff");
+        header.appendChild(button);
 
-        button.addEventListener("click", () =>{
 
-            if(vel == 1) {
+        document.addEventListener("mousemove", () =>{
+            if(button.classList.contains("twoTimesButtonOn")){
                 twoTimesSpeed();
             }else{
                 oneTimeSpeed();
             }
-
         });
-        header.appendChild(button);
+
+        button.addEventListener("click", () =>{
+            button.classList.toggle("twoTimesButtonOn"); //troca a classe(fixa) para essa que passei e vice versa
+            if(button.classList.contains("twoTimesButtonOff")) {
+                twoTimesSpeed();
+            }else{
+                oneTimeSpeed();
+            }
+        });
         
         function twoTimesSpeed(){
-            //button.innerHTML = "2x";
-            vel = 2;
             audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
@@ -36,8 +39,6 @@ const interval = setInterval(() => {
         }
 
         function oneTimeSpeed(){
-            //button.innerHTML = "1x";
-            vel = 1;
             audios = document.querySelectorAll("audio");
             console.log(audios);
             audios.forEach((audio) => {
